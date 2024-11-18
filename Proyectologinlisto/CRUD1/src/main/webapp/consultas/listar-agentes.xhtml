@@ -6,14 +6,14 @@
 
    <ui:define name="content">
       <h2>Listar Agentes</h2>
-
-      <!-- Botón para listar agentes -->
+   <!--
+       Botón para listar agentes
       <h:form>
-         <h:commandButton value="Listar Agentes" action="#{agenteController.getAgentes}" />
+         <h:commandButton value="Listar Agentes" action="#{agenteController.listarAgentes()}" />
       </h:form>
 
-      <!-- Tabla para mostrar los agentes -->
-      <h:dataTable value="#{agenteController.agentes}" var="agente">
+       Tabla para mostrar los agentes
+      <h:dataTable value="#{agenteController.agentes}" var="agente" class = "">
          <h:column>
             <f:facet name="header">Cédula</f:facet>
             #{agente.cedula}
@@ -31,7 +31,7 @@
             #{agente.celular}
          </h:column>
       </h:dataTable>
-
+      -->
    </ui:define>
 
 </ui:composition>

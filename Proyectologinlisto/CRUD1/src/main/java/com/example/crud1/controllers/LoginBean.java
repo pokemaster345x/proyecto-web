@@ -37,10 +37,11 @@ public class LoginBean implements Serializable {
     }
 
     public String login() {
+        Connection connection = null;
         try {
-            // cambiar siempre para que se conecte a la bd
-            String url = "jjdbc:sqlite:C:/Users/ekava/OneDrive/Documentos/GitHub/proyecto-web/Proyectologinlisto/CRUD1/alumnos.db";
-            Connection connection = DriverManager.getConnection(url);
+            // Cambiar siempre para que se conecte a la bd
+            String url = "jdbc:sqlite:C:/Users/ekava/OneDrive/Documentos/GitHub/proyecto-web/Proyectologinlisto/CRUD1/alumnos.db";
+            connection = DriverManager.getConnection(url);
 
             String sql = "SELECT * FROM agente WHERE loguin = ? AND contrasena = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -62,6 +63,16 @@ public class LoginBean implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
             return "login.xhtml?faces-redirect=true&error=true";
+
+        } finally {
+            // Cerrar la conexión en el bloque finally para asegurar que se cierre siempre
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

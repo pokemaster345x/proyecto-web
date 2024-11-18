@@ -304,18 +304,6 @@ body {
     height: 0;
 }
 
-.sidebar a {
-    display: flex;
-    align-items: center;
-    gap: 1.3rem;
-    padding: 0.9rem 0.7rem;
-    text-decoration: none;
-    margin: 0 0.5rem;
-    border-radius: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    color: var(--text-color);
-}
 
 .sidebar a:hover {
     background-color: var(--accent-color);

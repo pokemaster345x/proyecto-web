@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionDatabase {
 
-    private static final String url = "jjdbc:sqlite:C:/Users/ekava/OneDrive/Documentos/GitHub/proyecto-web/Proyectologinlisto/CRUD1/alumnos.db";
+    private static final String url = "jdbc:sqlite:C:/Users/ekava/OneDrive/Documentos/GitHub/proyecto-web/Proyectologinlisto/CRUD1/alumnos.db";
     // private static final String username = "postgres";
 
     private ConnectionDatabase() {
