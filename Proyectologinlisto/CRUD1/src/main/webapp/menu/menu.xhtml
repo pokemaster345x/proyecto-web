@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <!-- Contenedor principal -->
+   <div class="container-fluid p-0">
+      <!-- Header (Navbar) -->
+      <header class="row bg-light p-0">
+         <div class="col-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+               <a class="navbar-brand" href="#">Menu</a>
+
+               <div class="collapse navbar-collapse">
+                  <h:form>
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                           <h:commandLink value="Clientes" action="#{menuBean.loadClientes}" styleClass="nav-link">
+                              <f:ajax render="sidebar mainContent" onevent="refreshSidebar" />
+                           </h:commandLink>
+                        </li>
+                        <li class="nav-item">
+                           <h:commandLink value="Contratos" action="#{menuBean.loadContratos}" styleClass="nav-link">
+                              <f:ajax render="sidebar mainContent" onevent="refreshSidebar" />
+                           </h:commandLink>
+                        </li>
+                        <li class="nav-item">
+                           <h:commandLink value="Agentes" action="#{menuBean.loadAgentes}" styleClass="nav-link">
+                              <f:ajax render="sidebar mainContent" onevent="refreshSidebar" />
+                           </h:commandLink>
+                        </li>
+                        <li class="nav-item">
+                           <h:commandLink value="Consultar" action="#{menuBean.loadConsultar}" styleClass="nav-link">
+                              <f:ajax render="sidebar mainContent" onevent="refreshSidebar" />
+                           </h:commandLink>
+                        </li>
+                     </ul>
+                  </h:form>
+
+                  <h:form>
+                     <h:commandButton value="Cerrar sesión" action="#{sessionBean.logout}" immediate="true" styleClass="btn btn-danger">
+                        <f:ajax execute="@form" render="@form" />
+                     </h:commandButton>
+                  </h:form>
+               </div>
+            </nav>
+         </div>
+      </header>
+
+
+   </div>
+
+</ui:composition>

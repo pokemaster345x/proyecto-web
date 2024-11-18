@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+    <h:head>
+        <title>Lista de alumnos</title>
+    </h:head>
+    <h:body>
+        <h1>Lista de Alumnos</h1>
+        <h:form>
+            <h:commandButton action="#{alumnoBean.createAlumno}" value="Nuevo Alumno"/>
+        </h:form>
+    <h:form>
+        <div class="card">
+            <p:dataTable var="alumno" value="#{alumnoBean.alumnos}">
+
+                <p:column headerText="Acciones">
+                    <h:commandButton value="Editar" action="#{alumnoBean.detail(alumno.numero_carnet)}"/>
+                    <h:commandButton value="Eliminar" action="#{alumnoBean.delete(alumno.numero_carnet)}"/>
+
+
+                </p:column>
+
+                <p:column headerText="Numero Carnet">
+                    <h:outputText value="#{alumno.numero_carnet}" />
+                </p:column>
+
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{alumno.nombre}" />
+                </p:column>
+
+                <p:column headerText="Apellido">
+                    <h:outputText value="#{alumno.apellido}" />
+                </p:column>
+
+                <p:column headerText="Correo">
+                    <h:outputText value="#{alumno.correo}" />
+                </p:column>
+
+                <p:column headerText="Telefono">
+                    <h:outputText value="#{alumno.telefono}" />
+                </p:column>
+
+                <p:column headerText="Dirección">
+                    <h:outputText value="#{alumno.direccion}" />
+                </p:column>
+
+                <p:column headerText="Genero">
+                    <h:outputText value="#{alumno.genero.descripcion}" />
+                </p:column>
+            </p:dataTable>
+        </div>
+    </h:form>
+    </h:body>
+</f:view>
+</html>

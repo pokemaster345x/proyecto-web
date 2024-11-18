@@ -1,0 +1,45 @@
+.sidebar {
+    margin-top: 4rem;
+    width: 12.5rem;
+    height: 100vh; /* Altura completa de la ventana */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 1.1rem 0;
+    overflow-y: auto; /* Habilita el scroll vertical */
+    background-color: var(--background-color);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+/* Ocultar la barra de desplazamiento en navegadores WebKit (Chrome, Safari) */
+.sidebar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    padding: 0.9rem 0.7rem;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+.sidebar a:hover {
+    background-color: var(--accent-color);
+}
+
+.sidebar img {
+    width: 1.6rem;
+}
+
+.sidebar a.selected {
+    color: var(--secondary-text-color);
+}

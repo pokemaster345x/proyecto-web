@@ -1,0 +1,37 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+   <ui:define name="content">
+      <h2>Listar Agentes</h2>
+
+      <!-- Botón para listar agentes -->
+      <h:form>
+         <h:commandButton value="Listar Agentes" action="#{agenteController.getAgentes}" />
+      </h:form>
+
+      <!-- Tabla para mostrar los agentes -->
+      <h:dataTable value="#{agenteController.agentes}" var="agente">
+         <h:column>
+            <f:facet name="header">Cédula</f:facet>
+            #{agente.cedula}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Nombre Completo</f:facet>
+            #{agente.nombreCompleto}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Correo Electrónico</f:facet>
+            #{agente.correoElectronico}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Teléfono</f:facet>
+            #{agente.celular}
+         </h:column>
+      </h:dataTable>
+
+   </ui:define>
+
+</ui:composition>

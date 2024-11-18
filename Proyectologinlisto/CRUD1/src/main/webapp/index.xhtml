@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Inmobiliaria</title>
+    <h:outputStylesheet library="css" name="login.css" />
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <!-- Contenedor del logo -->
+                <div class="logo-container">
+                    <h:graphicImage name="img/logo-login.png" alt="Logo de la empresa" class="logo" />
+                </div>
+                <h:form class="login">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <span class="button__text">Nombre de Usuario/ ID</span>
+                        <h:inputText value="#{loginBean.username}" class="login__input" placeholder="User name / ID" />
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <span class="button__text">Contraseña</span>
+                        <br />
+                        <h:inputSecret value="#{loginBean.password}" class="login__input" placeholder="Password" />
+                    </div>
+                    <h:commandButton value="Log In Now" class="button login__submit" action="#{loginBean.login}">
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </h:commandButton>
+                </h:form>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <div class="d-flex" style="min-height: 100vh;">
+        <!-- Sidebar Izquierda -->
+        <div id="sidebar" class="bg-dark text-white p-3" style="width: 250px;">
+            <h:form>
+                <h:commandLink value="INMOBILIARIA S.A" action="#{navigationcontrollers.goToPage('home')}" styleClass="nav-link text-white ms-3">
+                <img src="https://raw.githubusercontent.com/pokemaster345x/SQLazo-images/main/img/logo-login.png" alt="Logo de la empresa" class="img-fluid" style="max-height: 30px;"/>
+                </h:commandLink>
+            </h:form>
+
+            <hr />
+            <ul class="nav nav-pills flex-column mb-auto">
+                <!-- Opciones de Contratos con colapso -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#contratos" role="button" aria-expanded="false" aria-controls="contratos">Contratos</a>
+                    <ul class="collapse" id="contratos">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Buscar Contratos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Agregar Contrato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Editar Contrato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Eliminar Contrato</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Opciones de Clientes con colapso -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#clientes" role="button" aria-expanded="false" aria-controls="clientes">Clientes</a>
+                    <ul class="collapse" id="clientes">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Buscar Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Agregar Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Editar Cliente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Eliminar Cliente</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Opciones de Agentes con colapso, solo si es Admin -->
+                <ui:fragment rendered="#{menuBean.isAdmin}">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#agentes" role="button" aria-expanded="false" aria-controls="agentes">Agentes</a>
+                        <ul class="collapse" id="agentes">
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Listar Agentes" action="#{navigationcontrollers.goToPage('listar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Buscar Agentes" action="#{navigationcontrollers.goToPage('buscar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Agregar Agentes" action="#{navigationcontrollers.goToPage('agregar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Editar Agente" action="#{navigationcontrollers.goToPage('editar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Eliminar Agentes" action="#{navigationcontrollers.goToPage('eliminar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                        </ul>
+                    </li>
+                </ui:fragment>
+
+
+                <!-- Opciones de Consultar con colapso -->
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#consultar" role="button" aria-expanded="false" aria-controls="consultar">Consultar</a>
+                    <ul class="collapse" id="consultar">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Realizar Consulta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white ms-3">Ver Resultados</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <hr />
+
+            <!-- Información de la cuenta -->
+            <div class="mt-3 text-center">
+                <img src="https://raw.githubusercontent.com/pokemaster345x/SQLazo-images/main/img/profesor.png"
+                     alt="Perfil"
+                     class="img-fluid rounded-circle mb-2"
+                     style="width: 50px; height: 50px; object-fit: cover; border: 2px solid white;"/>
+                <h5>Cuenta actual</h5>
+                <p><strong>Rol:</strong> #{menuBean.rol}</p>
+                <h:form>
+                <h:commandButton value="Cerrar sesión" action="#{sessionBean.logout}" immediate="true" styleClass="btn btn-danger">
+                    <f:ajax execute="@form" render="@form" />
+                </h:commandButton>
+            </h:form>
+            </div>
+        </div>
+
+    </div>
+</f:view>
+</html>
