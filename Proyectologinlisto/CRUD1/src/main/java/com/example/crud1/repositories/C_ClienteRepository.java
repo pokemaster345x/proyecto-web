@@ -3,10 +3,7 @@ package com.example.crud1.repositories;
 import com.example.crud1.models.Contrato;
 import com.example.crud1.models.ContratoCliente;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +13,7 @@ public class C_ClienteRepository {
     public C_ClienteRepository(Connection conn) {
         this.conn = conn;
     }
-
+    String querycodigo = "SELECT * FROM contratoCliente WHERE codigo = ?";
     public List<ContratoCliente> list() {
         List<ContratoCliente> c_clientes = new ArrayList<>();
         String query = "SELECT * FROM contratoCliente";
@@ -32,4 +29,19 @@ public class C_ClienteRepository {
         }
         return c_clientes;
     }
+
+    public Boolean existe(int codigo){
+        try{
+            PreparedStatement stmt = this.conn.prepareStatement(querycodigo);
+            stmt.setInt(1, codigo);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+
 }

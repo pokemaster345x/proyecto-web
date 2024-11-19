@@ -37,6 +37,7 @@ public class AgenteRepository {
         }
         return agentes;
     }
+
     public Boolean existe(int cedula){
         try{
             PreparedStatement stmt = this.conn.prepareStatement(querycedula);
