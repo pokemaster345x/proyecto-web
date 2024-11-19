@@ -1,0 +1,65 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+   <ui:define name="content">
+      <h1>Lista de Agentes</h1>
+      <h:form>
+         <h:commandButton action="#{agenteBean.createAgente}" value="Crear Nuevo Agente"/>
+      </h:form>
+      <div class="card">
+         <p:dataTable var="agente" value="#{agenteBean.agentes}">
+
+            <p:column headerText="Acciones">
+            <h:form>
+               <h:commandButton value="Editar" action="#{agenteBean.detail(agente.cedula)}"/>
+               <h:commandButton value="Eliminar" action="#{agenteBean.delete(agente.cedula)}"/>
+            </h:form>
+
+            </p:column>
+
+            <p:column headerText="Cedula">
+               <h:outputText value="#{agente.cedula}" />
+            </p:column>
+
+            <p:column headerText="Nombre">
+               <h:outputText value="#{agente.nombreCompleto}" />
+            </p:column>
+
+            <p:column headerText="Fecha De Nacimiento">
+               <h:outputText value="#{agente.fechaNacimiento}" />
+            </p:column>
+
+            <p:column headerText="Fecha De Expedicion">
+               <h:outputText value="#{agente.fechaExpedicion}" />
+            </p:column>
+
+            <p:column headerText="Loguin">
+               <h:outputText value="#{agente.loguin}" />
+            </p:column>
+
+            <p:column headerText="Contraseña">
+               <h:outputText value="#{agente.contrasena}" />
+            </p:column>
+
+            <p:column headerText="Correo">
+               <h:outputText value="#{agente.correoElectronico}" />
+            </p:column>
+
+            <p:column headerText="Celular">
+               <h:outputText value="#{agente.celular}" />
+            </p:column>
+
+            <p:column headerText="Dirección">
+               <h:outputText value="#{agente.direccion}" />
+            </p:column>
+
+         </p:dataTable>
+      </div>
+
+   </ui:define>
+
+</ui:composition>

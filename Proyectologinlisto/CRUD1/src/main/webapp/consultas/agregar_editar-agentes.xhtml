@@ -1,0 +1,72 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui" >
+   <ui:define name="content">
+      <h:form>
+         <h1>Agregar Agente</h1>
+
+         <!-- Campo para la cédula -->
+         <h:outputLabel for="cedula" value="Cédula:" />
+         <h:inputText id="cedula" value="#{agenteBean.agente.cedula}" required="true">
+            <f:validateLongRange minimum="1" />
+         </h:inputText>
+         <h:message for="cedula" style="color: red;" />
+
+         <!-- Campo para el celular -->
+         <h:outputLabel for="celular" value="Celular:" />
+         <h:inputText id="celular" value="#{agenteBean.agente.celular}" required="true" maxlength="15">
+            <f:validateRegex pattern="^\d+$" />
+         </h:inputText>
+         <h:message for="celular" style="color: red;" />
+
+         <!-- Campo para el nombre completo -->
+         <h:outputLabel for="nombreCompleto" value="Nombre Completo:" />
+         <h:inputText id="nombreCompleto" value="#{agenteBean.agente.nombreCompleto}" required="true" maxlength="100" />
+         <h:message for="nombreCompleto" style="color: red;" />
+
+         <!-- Campo para la fecha de nacimiento -->
+         <h:outputLabel for="fechaNacimiento" value="Fecha de Nacimiento:" />
+         <h:inputText id="fechaNacimiento" value="#{agenteBean.agente.fechaNacimiento}" required="true">
+            <f:convertDateTime pattern="yyyy-MM-dd" />
+         </h:inputText>
+         <h:message for="fechaNacimiento" style="color: red;" />
+
+         <!-- Campo para la fecha de expedición -->
+         <h:outputLabel for="fechaExpedicion" value="Fecha de Expedición:" />
+         <h:inputText id="fechaExpedicion" value="#{agenteBean.agente.fechaExpedicion}" required="true">
+            <f:convertDateTime pattern="yyyy-MM-dd" />
+         </h:inputText>
+         <h:message for="fechaExpedicion" style="color: red;" />
+
+         <!-- Campo para el login -->
+         <h:outputLabel for="loguin" value="Login:" />
+         <h:inputText id="loguin" value="#{agenteBean.agente.loguin}" required="true" maxlength="50" />
+         <h:message for="loguin" style="color: red;" />
+
+         <!-- Campo para la contraseña -->
+         <h:outputLabel for="contrasena" value="Contraseña:" />
+         <h:inputSecret id="contrasena" value="#{agenteBean.agente.contrasena}" required="true" maxlength="50" />
+         <h:message for="contrasena" style="color: red;" />
+
+         <!-- Campo para el correo electrónico -->
+         <h:outputLabel for="correoElectronico" value="Correo Electrónico:" />
+         <h:inputText id="correoElectronico" value="#{agenteBean.agente.correoElectronico}" required="true">
+            <f:validateRegex pattern="^[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$" />
+         </h:inputText>
+         <h:message for="correoElectronico" style="color: red;" />
+
+         <!-- Campo para la dirección -->
+         <h:outputLabel for="direccion" value="Dirección:" />
+         <h:inputText id="direccion" value="#{agenteBean.agente.direccion}" required="true" maxlength="200" />
+         <h:message for="direccion" style="color: red;" />
+
+         <!-- Botones de acción -->
+         <h:commandButton value="Guardar" action="#{agenteBean.create}" />
+         <h:commandButton value="Cancelar" action="/consultas/listar-agentes.xhtml?faces-redirect=true" />
+      </h:form>
+
+   </ui:define>
+</ui:composition>

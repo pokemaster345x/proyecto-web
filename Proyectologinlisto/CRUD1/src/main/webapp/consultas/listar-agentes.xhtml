@@ -5,15 +5,10 @@
                 xmlns:f="http://java.sun.com/jsf/core">
 
    <ui:define name="content">
-      <h2>Listar Agentes</h2>
-   <!--
-       Botón para listar agentes
-      <h:form>
-         <h:commandButton value="Listar Agentes" action="#{agenteController.listarAgentes()}" />
-      </h:form>
+      <h1>Lista de Agentes</h1>
+      <h:link value="Agregar Nuevo" outcome="/agente/agregar-agente.xhtml"/>
 
-       Tabla para mostrar los agentes
-      <h:dataTable value="#{agenteController.agentes}" var="agente" class = "">
+      <h:dataTable value="#{agenteBean.agentes}" var="agente">
          <h:column>
             <f:facet name="header">Cédula</f:facet>
             #{agente.cedula}
@@ -23,15 +18,17 @@
             #{agente.nombreCompleto}
          </h:column>
          <h:column>
-            <f:facet name="header">Correo Electrónico</f:facet>
+            <f:facet name="header">Correo</f:facet>
             #{agente.correoElectronico}
          </h:column>
          <h:column>
-            <f:facet name="header">Teléfono</f:facet>
-            #{agente.celular}
+            <f:facet name="header">Acciones</f:facet>
+            <h:link value="Editar" outcome="/agente/editar-agente.xhtml">
+               <f:param name="cedula" value="#{agente.cedula}" />
+            </h:link>
+            <h:commandLink value="Eliminar" action="#{agenteBean.delete(agente.cedula)}" />
          </h:column>
       </h:dataTable>
-      -->
    </ui:define>
 
 </ui:composition>

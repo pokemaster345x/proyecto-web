@@ -10,99 +10,116 @@
         <!-- Sidebar Izquierda -->
         <div id="sidebar" class="bg-dark text-white p-3" style="width: 250px;">
             <h:form>
-                <h:commandLink value="INMOBILIARIA S.A" action="#{navigationcontrollers.goToPage('home')}" styleClass="nav-link text-white ms-3">
+                <h:commandLink value="INMOBILIARIA S.A" action="#{navigationcontrollers.goToPage('home','none')}" styleClass="nav-link text-white ms-3">
                 <img src="https://raw.githubusercontent.com/pokemaster345x/SQLazo-images/main/img/logo-login.png" alt="Logo de la empresa" class="img-fluid" style="max-height: 30px;"/>
                 </h:commandLink>
             </h:form>
-
             <hr />
-            <ul class="nav nav-pills flex-column mb-auto">
-                <!-- Opciones de Contratos con colapso -->
-                <li class="nav-item">
-                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#contratos" role="button" aria-expanded="false" aria-controls="contratos">Contratos</a>
-                    <ul class="collapse" id="contratos">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Buscar Contratos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Agregar Contrato</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Editar Contrato</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Eliminar Contrato</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- Opciones de Clientes con colapso -->
-                <li class="nav-item">
-                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#clientes" role="button" aria-expanded="false" aria-controls="clientes">Clientes</a>
-                    <ul class="collapse" id="clientes">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Buscar Clientes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Agregar Cliente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Editar Cliente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Eliminar Cliente</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <!-- Opciones de Agentes con colapso, solo si es Admin -->
-                <ui:fragment rendered="#{menuBean.isAdmin}">
+            <div id="scroleable">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <!-- Opciones de Contratos con colapso -->
                     <li class="nav-item">
-                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#agentes" role="button" aria-expanded="false" aria-controls="agentes">Agentes</a>
-                        <ul class="collapse" id="agentes">
+                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#contratos" role="button" aria-expanded="false" aria-controls="contratos">Contratos</a>
+                        <ul class="collapse" id="contratos">
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Listar Agentes" action="#{navigationcontrollers.goToPage('listar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Listar contratos" action="#{navigationcontrollers.goToPage('listar-contratos','contratos')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Buscar Agentes" action="#{navigationcontrollers.goToPage('buscar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Buscar contratos" action="#{navigationcontrollers.goToPage('buscar-contratos','contratos')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Agregar Agentes" action="#{navigationcontrollers.goToPage('agregar-agentes')}" styleClass="nav-link text-white ms-3" />
-                                </h:form>
-                            </li>
-                            <li class="nav-item">
-                                <h:form>
-                                    <h:commandLink value="Editar Agente" action="#{navigationcontrollers.goToPage('editar-agentes')}" styleClass="nav-link text-white ms-3" />
-                                </h:form>
-                            </li>
-                            <li class="nav-item">
-                                <h:form>
-                                    <h:commandLink value="Eliminar Agentes" action="#{navigationcontrollers.goToPage('eliminar-agentes')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Agregar/Editar contratos" action="#{navigationcontrollers.goToPage('agregar_editar-contratos','contratos')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                         </ul>
                     </li>
-                </ui:fragment>
+
+                    <!-- Opciones de Clientes con colapso -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#clientes" role="button" aria-expanded="false" aria-controls="contratos">Clientes</a>
+                        <ul class="collapse" id="clientes">
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Listar clientes" action="#{navigationcontrollers.goToPage('listar-clientes','clientes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Buscar clientes" action="#{navigationcontrollers.goToPage('buscar-clientes','clientes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Agregar/Editar clientes" action="#{navigationcontrollers.goToPage('agregar_editar-clientes','clientes')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Opciones de Inmuebles con colapso -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#inmuebles" role="button" aria-expanded="false" aria-controls="contratos">Inmuebles</a>
+                        <ul class="collapse" id="inmuebles">
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Listar inmuebles" action="#{navigationcontrollers.goToPage('listar-inmuebles','inmuebles')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Buscar inmuebles" action="#{navigationcontrollers.goToPage('buscar-inmuebles','inmuebles')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Agregar/Editar inmuebles" action="#{navigationcontrollers.goToPage('agregar_editar-inmuebles','inmuebles')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Opciones de Agentes con colapso, solo si es Admin -->
+                    <ui:fragment rendered="#{menuBean.isAdmin}">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" data-bs-toggle="collapse" href="#agentes" role="button" aria-expanded="false" aria-controls="agentes">Agentes</a>
+                            <ul class="collapse" id="agentes">
+                                <li class="nav-item">
+                                    <h:form>
+                                        <h:commandLink value="Listar Agentes" action="#{navigationcontrollers.goToPage('listar-agentes','agentes')}" styleClass="nav-link text-white ms-3" />
+                                    </h:form>
+                                </li>
+                                <li class="nav-item">
+                                    <h:form>
+                                        <h:commandLink value="Buscar Agentes" action="#{navigationcontrollers.goToPage('buscar-agentes','agentes')}" styleClass="nav-link text-white ms-3" />
+                                    </h:form>
+                                </li>
+                                <li class="nav-item">
+                                    <h:form>
+                                        <h:commandLink value="Agregar/Editar Agentes" action="#{navigationcontrollers.goToPage('agregar_editar-agentes','agentes')}" styleClass="nav-link text-white ms-3" />
+                                    </h:form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ui:fragment>
 
 
-                <!-- Opciones de Consultar con colapso -->
-                <li class="nav-item">
-                    <a class="nav-link text-white" data-bs-toggle="collapse" href="#consultar" role="button" aria-expanded="false" aria-controls="consultar">Consultar</a>
-                    <ul class="collapse" id="consultar">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Realizar Consulta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white ms-3">Ver Resultados</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                    <!-- Opciones de Consultar con colapso -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#consultar" role="button" aria-expanded="false" aria-controls="consultar">Consultar</a>
+                        <ul class="collapse" id="consultar">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white ms-3">Realizar Consulta</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white ms-3">Ver Resultados</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </div>
             <hr />
 
             <!-- Información de la cuenta -->
