@@ -1,8 +1,109 @@
 <ui:composition template="/menu/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
     <ui:define name="content">
-        <h2>agregar
-            clientes</h2>
+        <title>Agregar/Editar Cliente</title>
+        <p:growl id="growl" showDetail="true" />
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="text-center mb-4">Agregar/Editar Cliente</h2>
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h:form>
+                                <!-- Campo para la cédula -->
+                                <div class="form-group">
+                                    <label for="dni">Cédula</label>
+                                    <h:inputText id="dni" value="#{clienteBean.cliente.cedula}" label="Cédula"
+                                                 required="true" disabled="#{clienteBean.editando}"
+                                                 styleClass="form-control">
+                                        <f:validateLongRange minimum="1" />
+                                    </h:inputText>
+                                    <h:message for="dni" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo para el celular -->
+                                <div class="form-group">
+                                    <label for="phone1">Telefono1</label>
+                                    <h:inputText id="phone1" value="#{clienteBean.cliente.telefono1}" label="Telefono 1"
+                                                 required="true" maxlength="15" styleClass="form-control">
+                                        <f:validateRegex pattern="^\d+$" />
+                                    </h:inputText>
+                                    <h:message for="phone1" class="text-danger small" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone2">Telefono1</label>
+                                    <h:inputText id="phone2" value="#{clienteBean.cliente.telefono2}" label="Telefono 2"
+                                                 required="true" maxlength="15" styleClass="form-control">
+                                        <f:validateRegex pattern="^\d+$" />
+                                    </h:inputText>
+                                    <h:message for="phone2" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo para el nombre completo -->
+                                <div class="form-group">
+                                    <label for="nombre">Nombre Completo</label>
+                                    <h:inputText id="nombre" value="#{clienteBean.cliente.nombreCompleto}"
+                                                 label="Nombre Completo" required="true" maxlength="100"
+                                                 styleClass="form-control" />
+                                    <h:message for="nombre" class="text-danger small" />
+                                </div>
+                                <!-- Campo para la dirección -->
+                                <div class="form-group">
+                                    <label for="direccion">Dirección</label>
+                                    <h:inputText id="direccion" value="#{clienteBean.cliente.direccion}"
+                                                 label="Dirección" required="true" maxlength="200"
+                                                 styleClass="form-control" />
+                                    <h:message for="direccion" class="text-danger small" />
+                                </div>
+                                <!-- Campo para la fecha de nacimiento -->
+                                <div class="form-group">
+                                    <label for="nacimiento">Fecha de Nacimiento</label>
+                                    <p:datePicker id="nacimiento" value="#{clienteBean.cliente.fechaNacimiento}"
+                                                  label="Fecha de Nacimiento" required="true" pattern="yyyy-MM-dd"
+                                                  styleClass="form-control" />
+                                    <h:message for="nacimiento" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo para la fecha de expedición -->
+                                <div class="form-group">
+                                    <label for="fechaexpedicion">Fecha de Expedición</label>
+                                    <p:datePicker id="fechaexpedicion" value="#{clienteBean.cliente.fechaExpedicion}"
+                                                  label="Fecha de Expedición" required="true" pattern="yyyy-MM-dd"
+                                                  styleClass="form-control" />
+                                    <h:message for="fechaexpedicion" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo para el correo electrónico -->
+                                <div class="form-group">
+                                    <label for="email">Correo Electrónico</label>
+                                    <h:inputText id="email" value="#{clienteBean.cliente.correoElectronico}"
+                                                 label="Correo Electrónico" required="true"
+                                                 styleClass="form-control" />
+                                    <h:message for="email" class="text-danger small" />
+                                </div>
+
+                                <!-- Botones de acción -->
+                                <div class="form-group text-center mt-4">
+                                    <h:commandButton value="Guardar" action="#{clienteBean.create}"
+                                                     rendered="#{!clienteBean.editando}"
+                                                     styleClass="btn btn-primary" />
+                                    <p:commandButton value="Actualizar" action="#{clienteBean.update}"
+                                                     rendered="#{clienteBean.editando}"
+                                                     styleClass="btn btn-warning" />
+                                    <h:commandButton value="Cancelar"
+                                                     action="/crud-agentes/listar-agentes.xhtml?faces-redirect=true"
+                                                     styleClass="btn btn-secondary" />
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </ui:define>
 </ui:composition>

@@ -26,7 +26,7 @@ public class InmuebleRepository {
                 inmueble.setTipoInmueble(rs.getString("tipoInmueble"));
                 inmueble.setDescripcionInmueble(rs.getString("DescripcionInmueble"));
                 inmueble.setModalidadComercio(rs.getString("ModalidadComercio"));
-                inmueble.setCodigoCiudad(rs.getInt("codigoCiudad"));
+                inmueble.getCiudad().setCodigoCiudad(rs.getInt("codigoCiudad"));
                 inmueble.setDireccion(rs.getString("direccion"));
                 inmueble.setTamanoMetro(rs.getFloat("tamanoMetro"));
                 inmueble.setCantBanos(rs.getInt("CantBanos"));

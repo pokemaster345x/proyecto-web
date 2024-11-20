@@ -1,7 +1,31 @@
 <ui:composition template="/menu/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui" >
    <ui:define name="content">
-      <h2>aca buscaremos los clientes</h2>
+
+      <h:form>
+         <h3>Buscar cliente por Cédula</h3>
+         <h:outputLabel for="cedula" value="Cédula: " />
+         <h:inputText id="cedula" value="#{clienteBean.cedulaBuscar}" />
+         <h:commandButton value="Buscar"
+                          action="#{clienteBean.buscarClientePorCedula}" />
+         <h:messages />
+
+         <h:panelGroup rendered="#{not empty clienteBean.cliente}">
+            <h3>Detalles del cliente</h3>
+            <h:outputText value="Cédula: #{clienteBean.cliente.cedula}" /><br/>
+            <h:outputText value="Telefono1: #{clienteBean.cliente.telefono1}" /><br/>
+            <h:outputText value="Telefono2: #{clienteBean.cliente.telefono2}" /><br/>
+            <h:outputText value="Nombre Completo: #{clienteBean.cliente.nombreCompleto}" /><br/>
+            <h:outputText value="Dirección: #{clienteBean.cliente.direccion}" /><br/>
+            <h:outputText value="Fecha de Nacimiento: #{clienteBean.cliente.fechaNacimiento}" /><br/>
+            <h:outputText value="Fecha de Expedicion: #{clienteBean.cliente.fechaExpedicion}" /><br/>
+            <h:outputText value="Correo Electrónico: #{clienteBean.cliente.correoElectronico}" /><br/>
+
+         </h:panelGroup>
+      </h:form>
    </ui:define>
 </ui:composition>

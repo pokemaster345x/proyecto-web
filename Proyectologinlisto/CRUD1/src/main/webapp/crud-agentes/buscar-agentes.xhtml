@@ -5,27 +5,23 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui" >
    <ui:define name="content">
-      <h:form id="searchForm">
-         <h1>Buscar Agente</h1>
 
-         <!-- Campo de cédula -->
-         <h:outputLabel for="cedulaBuscar" value="Ingrese la Cédula:" />
-         <p:inputText id="cedulaBuscar" value="#{agenteBean.agente.cedula}" required="true" />
+      <h:form>
+      <h3>Buscar Agente por Cédula</h3>
+      <h:outputLabel for="cedula" value="Cédula: " />
+      <h:inputText id="cedula" value="#{agenteBean.cedulaBuscar}" />
+      <h:commandButton value="Buscar"
+                       action="#{agenteBean.buscarAgentePorCedula}" />
+      <h:messages />
 
-         <!-- Botón de búsqueda -->
-         <p:commandButton value="Buscar" action="#{agenteBean.detail}" update="searchResult" />
-
-         <!-- Resultados de búsqueda -->
-         <h:panelGroup id="searchResult" rendered="#{not empty agenteBean.agente}">
-            <h3>Detalles del Agente Encontrado</h3>
-            <p:outputLabel value="Nombre Completo: #{agenteBean.agente.nombreCompleto}" />
-            <p:outputLabel value="Celular: #{agenteBean.agente.celular}" />
-            <p:outputLabel value="Correo: #{agenteBean.agente.correoElectronico}" />
-         </h:panelGroup>
-
-         <h:panelGroup rendered="#{empty agenteBean.agente}">
-            <p:message summary="No se encontró un agente con esa cédula." />
-         </h:panelGroup>
-      </h:form>
+      <h:panelGroup rendered="#{not empty agenteBean.agente}">
+         <h3>Detalles del Agente</h3>
+         <h:outputText value="Cédula: #{agenteBean.agente.cedula}" /><br/>
+         <h:outputText value="Nombre Completo: #{agenteBean.agente.nombreCompleto}" /><br/>
+         <h:outputText value="Celular: #{agenteBean.agente.celular}" /><br/>
+         <h:outputText value="Correo Electrónico: #{agenteBean.agente.correoElectronico}" /><br/>
+         <h:outputText value="Dirección: #{agenteBean.agente.direccion}" /><br/>
+      </h:panelGroup>
+   </h:form>
    </ui:define>
 </ui:composition>

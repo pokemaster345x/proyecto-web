@@ -73,4 +73,23 @@ public class AgenteBean implements Serializable {
         this.agenteService.delete(cedula);
         listarAgentes();
     }
+    private int cedulaBuscar;
+    public int getCedulaBuscar() {
+        return cedulaBuscar;
+    }
+
+    public void setCedulaBuscar(int cedulaBuscar) {
+        this.cedulaBuscar = cedulaBuscar;
+    }
+
+    public void buscarAgentePorCedula() {
+        this.agente = this.agenteService.getById(this.cedulaBuscar);
+        if (this.agente == null) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                            "No encontrado", "No se encontró un agente con esa cédula."));
+        }
+    }
+
+
 }

@@ -1,0 +1,47 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h1>Lista de Clientes</h1>
+        <h:form>
+            <h:commandButton action="#{clienteBean.createCliente}" value="Crear Nuevo Cliente"/>
+        </h:form>
+        <div class="card">
+            <p:dataTable var="cliente" value="#{clienteBean.clientes}">
+                <p:column headerText="Accciones">
+                    <h:form>
+                        <h:commandButton value="Editar" action="#{clienteBean.detail(cliente.cedula)}"/>
+                        <h:commandButton value="Eliminar" action="#{clienteBean.detail(cliente.cedula)}"/>
+                    </h:form>
+                </p:column>
+                <p:column headerText="Cedula">
+                    <h:outputText value="#{cliente.cedula}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{cliente.nombreCompleto}" />
+                </p:column>
+                <p:column headerText="Telefono1">
+                    <h:outputText value="#{cliente.telefono1}" />
+                </p:column>
+                <p:column headerText="Telefono2">
+                    <h:outputText value="#{cliente.telefono2}" />
+                </p:column>
+                <p:column headerText="Direccion">
+                    <h:outputText value="#{cliente.direccion}" />
+                </p:column>
+                <p:column headerText="Fecha de Nacimiento">
+                    <h:outputText value="#{cliente.fechaNacimiento}" />
+                </p:column>
+                <p:column headerText="Fecha de Expedicion">
+                    <h:outputText value="#{cliente.fechaExpedicion}" />
+                </p:column>
+                <p:column headerText="Correo Electronico">
+                    <h:outputText value="#{cliente.correoElectronico}" />
+                </p:column>
+            </p:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

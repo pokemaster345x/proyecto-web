@@ -1,5 +1,6 @@
 package com.example.crud1.repositories;
 
+import com.example.crud1.models.Agente;
 import com.example.crud1.models.Contrato;
 import com.example.crud1.models.ContratoCliente;
 
@@ -41,7 +42,6 @@ public class C_ClienteRepository {
             return false;
         }
     }
-
 
 
 }

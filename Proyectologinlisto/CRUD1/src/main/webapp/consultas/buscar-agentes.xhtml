@@ -10,7 +10,7 @@
 
          <!-- Campo de cédula -->
          <h:outputLabel for="cedulaBuscar" value="Ingrese la Cédula:" />
-         <p:inputText id="cedulaBuscar" value="#{agenteBean.agente.cedula}" required="true" />
+         <p:inputText id="cedulaBuscar" value="#{agenteBean.cedulaBuscar}" required="true" />
 
          <!-- Botón de búsqueda -->
          <p:commandButton value="Buscar" action="#{agenteBean.detail}" update="searchResult" />

@@ -1,7 +1,35 @@
 <ui:composition template="/menu/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui" >
    <ui:define name="content">
-      <h2>aca buscaremos los inmuebles</h2>
+
+      <h:form>
+         <h3>Buscar inmueble por Codigo</h3>
+         <h:outputLabel for="cedula" value="Cédula: " />
+         <h:inputText id="cedula" value="#{inmuebleBean.inmuebleBuscar}" />
+         <h:commandButton value="Buscar"
+                          action="#{inmuebleBean.buscarinmueblePorCedula}" />
+         <h:messages />
+
+         <h:panelGroup rendered="#{not empty inmuebleBean.inmueble}">
+            <h3>Detalles del inmueble</h3>
+            <h:outputText value="Codigo: #{inmuebleBean.inmueble.codigo}" /><br/>
+            <h:outputText value="Tipo Inmueble: #{inmuebleBean.inmueble.tipoInmueble}" /><br/>
+            <h:outputText value="Descripcion Inmueble: #{inmuebleBean.inmueble.DescripcionInmueble}" /><br/>
+            <h:outputText value="Modalidad Comercio: #{inmuebleBean.inmueble.ModalidadComercio}" /><br/>
+            <h:outputText value="Codigo Ciudad: #{inmuebleBean.inmueble.codigoCiudad}" /><br/>
+            <h:outputText value="Direccion: #{inmuebleBean.inmueble.direccion}" /><br/>
+            <h:outputText value="Tamano Metro: #{inmuebleBean.inmueble.TamanoMetro}" /><br/>
+            <h:outputText value="Cantidad de Banos: #{inmuebleBean.inmueble.CantBanos}" /><br/>
+            <h:outputText value="Foto Inmueble: #{inmuebleBean.inmueble.FotoInmueble}" /><br/>
+            <h:outputText value="Estado: #{inmuebleBean.inmueble.estado}" /><br/>
+            <h:outputText value="Precio Final: #{inmuebleBean.inmueble.precioFinal}" /><br/>
+
+
+         </h:panelGroup>
+      </h:form>
    </ui:define>
 </ui:composition>

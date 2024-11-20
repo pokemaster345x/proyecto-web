@@ -39,4 +39,5 @@ public class ContratoRepository {
         }
         return contratos;
     }
+    
 }

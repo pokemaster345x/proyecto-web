@@ -1,20 +1,11 @@
 package com.example.crud1.models;
 
-public class ContratoPropietario {
+public class ContratoPropietario extends Contrato{
 
-    private int codigo;
     private float comision;
 
     public ContratoPropietario() {}
-    public ContratoPropietario(int codigo, float comision) {}
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
+    public ContratoPropietario(float comision) {}
 
     public float getComision() {
         return comision;

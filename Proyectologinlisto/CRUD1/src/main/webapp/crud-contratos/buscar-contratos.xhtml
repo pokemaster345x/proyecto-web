@@ -1,7 +1,31 @@
 <ui:composition template="/menu/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets">
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui" >
     <ui:define name="content">
-        <h2>aca buscaremos los contratos</h2>
+
+        <h:form>
+            <h3>Buscar contrato por Codigo</h3>
+            <h:outputLabel for="cedula" value="Cédula: " />
+            <h:inputText id="cedula" value="#{contratoBean.contratoBuscar}" />
+            <h:commandButton value="Buscar"
+                             action="#{contratoBean.buscarContratoPorCedula}" />
+            <h:messages />
+
+            <h:panelGroup rendered="#{not empty clienteBean.cliente}">
+                <h3>Detalles del contrato</h3>
+                <h:outputText value="Codigo: #{contratoBean.contrato.codigo}" /><br/>
+                <h:outputText value="Valor: #{contratoBean.contrato.valor}" /><br/>
+                <h:outputText value="Tipo Contrato: #{contratoBean.contrato.tipoContrato}" /><br/>
+                <h:outputText value="Descripcion: #{contratoBean.contrato.descripcion}" /><br/>
+                <h:outputText value="Fecha creacion: #{contratoBean.contrato.fechaCreacion}" /><br/>
+                <h:outputText value="Fecha expiracion: #{contratoBean.contrato.fechaExpiracion}" /><br/>
+                <h:outputText value="Cedula: #{contratoBean.contrato.cedula}" /><br/>
+
+
+            </h:panelGroup>
+        </h:form>
     </ui:define>
 </ui:composition>

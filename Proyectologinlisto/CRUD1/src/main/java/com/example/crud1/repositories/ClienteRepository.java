@@ -25,6 +25,7 @@ public class ClienteRepository {
                 cliente.setCedula(rs.getInt("cedula"));
                 cliente.setTelefono1(rs.getString("telefono1"));
                 cliente.setTelefono2(rs.getString("telefono2"));
+                cliente.setDireccion(rs.getString("direccion"));
                 cliente.setNombreCompleto(rs.getString("nombreCompleto"));
                 cliente.setFechaNacimiento(rs.getDate("fechaNacimiento"));
                 cliente.setFechaExpedicion(rs.getDate("fechaExpedicion"));
@@ -78,6 +79,7 @@ public class ClienteRepository {
                 cliente.setCedula(rs.getInt("cedula"));
                 cliente.setTelefono1(rs.getString("telefono1"));
                 cliente.setTelefono2(rs.getString("telefono2"));
+                cliente.setDireccion(rs.getString("direccion"));
                 cliente.setNombreCompleto(rs.getString("nombreCompleto"));
                 cliente.setFechaNacimiento(rs.getDate("fechaNacimiento"));
                 cliente.setFechaExpedicion(rs.getDate("fechaExpedicion"));

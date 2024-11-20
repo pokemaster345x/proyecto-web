@@ -8,7 +8,7 @@ public class Inmueble {
     private String tipoInmueble;
     private String DescripcionInmueble;
     private String ModalidadComercio;
-    private int codigoCiudad;
+    private Ciudad ciudad;
     private String direccion;
     private float tamanoMetro;
     private int CantBanos;
@@ -23,7 +23,7 @@ public class Inmueble {
         this.tipoInmueble = tipoInmueble;
         this.DescripcionInmueble = DescripcionInmueble;
         this.ModalidadComercio = ModalidadComercio;
-        this.codigoCiudad = codigoCiudad;
+        this.ciudad = new Ciudad();
         this.direccion = direccion;
         this.tamanoMetro = tamanoMetro;
         this.CantBanos = CantBanos;
@@ -64,12 +64,12 @@ public class Inmueble {
         ModalidadComercio = modalidadComercio;
     }
 
-    public int getCodigoCiudad() {
-        return codigoCiudad;
+    public Ciudad getCiudad() {
+        return ciudad;
     }
 
-    public void setCodigoCiudad(int codigoCiudad) {
-        this.codigoCiudad = codigoCiudad;
+    public void setCiudad(Ciudad codigoCiudad) {
+        this.ciudad = ciudad;
     }
 
     public String getDireccion() {
