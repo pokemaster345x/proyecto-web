@@ -317,5 +317,23 @@ body {
     color: var(--secondary-text-color);
 }
 
+ .small-image {
+     width: 80px; /* Tamaño inicial pequeño */
+     height: auto;
+     transition: transform 0.3s ease; /* Suaviza el agrandamiento */
+ }
+
+.small-image:hover {
+    transform: scale(2); /* Doble del tamaño original */
+    z-index: 10; /* Asegura que la imagen quede encima de otros elementos */
+    position: relative; /* Permite superposición */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 

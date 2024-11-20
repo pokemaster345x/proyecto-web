@@ -5,7 +5,7 @@ public class ContratoPropietario extends Contrato{
     private float comision;
 
     public ContratoPropietario() {}
-    public ContratoPropietario(float comision) {}
+    public ContratoPropietario(float comision) {this.comision = comision;}
 
     public float getComision() {
         return comision;

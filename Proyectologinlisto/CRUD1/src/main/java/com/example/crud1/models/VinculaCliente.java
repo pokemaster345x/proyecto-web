@@ -2,38 +2,40 @@ package com.example.crud1.models;
 
 public class VinculaCliente {
 
-    private int codigoInmueble;
-    private int codigoContratoCliente;
-    private int cedulaCliente;
+    private Inmueble inmueble;
+    private Cliente cliente;
+    private ContratoCliente contratoCliente;
 
     public VinculaCliente() { }
-    public VinculaCliente(int codigoInmueble, int codigoContratoCliente, int cedulaCliente) {
-        this.codigoInmueble = codigoInmueble;
-        this.codigoContratoCliente = codigoContratoCliente;
-        this.cedulaCliente = cedulaCliente;
+
+    public VinculaCliente(Inmueble inmueble, ContratoCliente contratoCliente, Cliente cliente) {
+        this.inmueble = inmueble;
+        this.contratoCliente = contratoCliente;
+        this.cliente = cliente;
     }
 
-    public int getCodigoInmueble() {
-        return codigoInmueble;
+
+    public Inmueble getInmueble() {
+        return inmueble;
     }
 
-    public void setCodigoInmueble(int codigoInmueble) {
-        this.codigoInmueble = codigoInmueble;
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
     }
 
-    public int getCodigoContratoCliente() {
-        return codigoContratoCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setCodigoContratoCliente(int codigoContratoCliente) {
-        this.codigoContratoCliente = codigoContratoCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public int getCedulaCliente() {
-        return cedulaCliente;
+    public ContratoCliente getContratoCliente() {
+        return contratoCliente;
     }
 
-    public void setCedulaCliente(int cedulaCliente) {
-        this.cedulaCliente = cedulaCliente;
+    public void setContratoCliente(ContratoCliente contratoCliente) {
+        this.contratoCliente = contratoCliente;
     }
 }

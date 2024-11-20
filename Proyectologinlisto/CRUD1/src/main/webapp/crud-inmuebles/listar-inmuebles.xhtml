@@ -1,0 +1,59 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h1>Lista de Contratos</h1>
+        <h:form>
+            <h:commandButton action="#{inmueblesBean.createInmueble}" value="Crear Nuevo Inmueble"/>
+        </h:form>
+        <div class="card">
+            <p:dataTable var="inmueble" value="#{inmuebleBean.inmueble}">
+                <p:column headerText="Accciones">
+                    <h:form>
+                        <h:commandButton value="Editar" action="#{inmuebleBean.detail(inmueble.codigo)}"/>
+                        <h:commandButton value="Eliminar" action="#{inmuebleBean.detail(inmueble.codigo)}"/>
+                    </h:form>
+                </p:column>
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{inmueble.codigo}" />
+                </p:column>
+                <p:column headerText="Tipo Inmueble">
+                    <h:outputText value="#{inmueble.tipoInmueble}" />
+                </p:column>
+                <p:column headerText="Descripcion Inmueble">
+                    <h:outputText value="#{inmueble.DescripcionInmueble}" />
+                </p:column>
+                <p:column headerText="Modalidad Comercio">
+                    <h:outputText value="#{inmueble.ModalidadComercio}" />
+                </p:column>
+                <p:column headerText="Codigo Ciudad">
+                    <h:outputText value="#{inmueble.codigoCiudad}" />
+                </p:column>
+                <p:column headerText="Direccion">
+                    <h:outputText value="#{inmueble.direccion}" />
+                </p:column>
+                <p:column headerText="Tamano Metro">
+                    <h:outputText value="#{inmueble.tamanoMetro}" />
+                </p:column>
+                <p:column headerText="Cantidad Banos">
+                    <h:outputText value="#{inmueble.CantBanos}" />
+                </p:column>
+                <p:column headerText="Foto Inmueble">
+                    <div class="image-container">
+                        <img src="#{inmueble.FotoInmueble}" class="img-thumbnail small-image" alt="Imagen de #{inmueble.tipoInmueble}" />
+                    </div>
+                </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{inmueble.estado}" />
+                </p:column>
+                <p:column headerText="Precio Final">
+                    <h:outputText value="#{inmueble.precioFinal}" />
+                </p:column>
+
+            </p:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>
