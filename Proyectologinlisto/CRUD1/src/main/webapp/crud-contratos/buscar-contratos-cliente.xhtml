@@ -9,20 +9,20 @@
         <h:form>
             <h3>Buscar contrato por Codigo</h3>
             <h:outputLabel for="codigo" value="Codigo: " />
-            <h:inputText id="codigo" value="#{contratoBean.contratoBuscar}" />
+            <h:inputText id="codigo" value="#{contratoclientebean.buscarContratoPorCodigo()}" />
             <h:commandButton value="Buscar"
-                             action="#{contratoBean.buscarContratoPorCodigo" />
+                             action="#{contratoclientebean.buscarContratoPorCodigo()}" />
             <h:messages />
 
-            <h:panelGroup rendered="#{not empty contratoBean.contrato}">
+            <h:panelGroup rendered="#{not empty contratoclientebean.contratos}">
                 <h3>Detalles del contrato</h3>
-                <h:outputText value="Codigo: #{contratoBean.contrato.codigo}" /><br/>
-                <h:outputText value="Valor: #{contratoBean.contrato.valor}" /><br/>
-                <h:outputText value="Tipo Contrato: #{contratoBean.contrato.tipoContrato}" /><br/>
-                <h:outputText value="Descripcion: #{contratoBean.contrato.descripcion}" /><br/>
-                <h:outputText value="Fecha creacion: #{contratoBean.contrato.fechaCreacion}" /><br/>
-                <h:outputText value="Fecha expiracion: #{contratoBean.contrato.fechaExpiracion}" /><br/>
-                <h:outputText value="Cedula: #{contratoBean.contrato.cedula}" /><br/>
+                <h:outputText value="Codigo: #{contratoclientebean.contratos.codigo}" /><br/>
+                <h:outputText value="Valor: #{contratoclientebean.contratos.valor}" /><br/>
+                <h:outputText value="Tipo Contrato: #{contratoclientebean.contratos.tipoContrato}" /><br/>
+                <h:outputText value="Descripcion: #{contratoclientebean.contratos.descripcion}" /><br/>
+                <h:outputText value="Fecha creacion: #{contratoclientebean.contratos.fechaCreacion}" /><br/>
+                <h:outputText value="Fecha expiracion: #{contratoclientebean.contratos.fechaExpiracion}" /><br/>
+                <h:outputText value="Cedula: #{contratoclientebean.contratos.cedula}" /><br/>
 
 
             </h:panelGroup>

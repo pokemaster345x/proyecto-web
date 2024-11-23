@@ -1,0 +1,27 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="content">
+        <h1>Formulario de Inmueble Propietario</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Código:" for="codigo"/>
+                <h:inputText id="codigo" value="#{inmuebleBean.propietario.codigo}" disabled="#{inmuebleBean.propietario.codigo != null}"/>
+
+                <h:outputLabel value="Tipo de Inmueble:" for="tipoInmueble"/>
+                <h:inputText id="tipoInmueble" value="#{inmuebleBean.propietario.tipoInmueble}"/>
+
+                <h:outputLabel value="Descripción:" for="descripcionInmueble"/>
+                <h:inputTextarea id="descripcionInmueble" value="#{inmuebleBean.propietario.descripcionInmueble}"/>
+
+                <h:outputLabel value="Estado:" for="estado"/>
+                <h:selectBooleanCheckbox id="estado" value="#{inmuebleBean.propietario.estado}"/>
+            </h:panelGrid>
+
+            <h:commandButton value="Guardar" action="#{inmuebleBean.createPropietario()}"/>
+            <h:commandButton value="Cancelar" action="/crud-inmuebles/list-propietario.xhtml"/>
+        </h:form>
+    </ui:define>
+</ui:composition>
+

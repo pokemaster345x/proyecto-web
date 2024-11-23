@@ -46,8 +46,8 @@ public class InmuebleRepository {
 
     public List<InmueblePropietario> listIPropietario() {
         List<InmueblePropietario> inmueblePropietarios = new ArrayList<>();
-        String query = "SELECT * FROM inmueble i INNER JOIN inmueblePropietario ip ON i.codigo = ip.codigo" +
-                "INNER JOIN ciudad c ON i.codigoCiudad = c.codigoCiudad";
+        String query = "SELECT * FROM inmueble i INNER JOIN inmueblePropietario ip ON i.codigo = ip.codigo " +
+                " JOIN ciudad c ON i.codigoCiudad = c.codigoCiudad";
         try (Statement st = this.conn.createStatement();
              ResultSet rs = st.executeQuery(query)) {
             while (rs.next()) {
@@ -78,8 +78,8 @@ public class InmuebleRepository {
 
     public List<InmuebleInmobiliaria> listInmobiliaria() {
         List<InmuebleInmobiliaria> InmuebleI = new ArrayList<>();
-        String query = "SELECT * FROM inmueble i INNER JOIN inmuebleInmobiliaria ii ON i.codigo = ii.codigo" +
-                "INNER JOIN ciudad c ON i.codigoCiudad = c.codigoCiudad";
+        String query = "SELECT * FROM inmueble i INNER JOIN inmuebleInmobiliaria ii ON i.codigo = ii.codigo " +
+                " JOIN ciudad c ON i.codigoCiudad = c.codigoCiudad";
         try (Statement st = this.conn.createStatement();
              ResultSet rs = st.executeQuery(query)) {
             while (rs.next()) {
@@ -327,5 +327,4 @@ public class InmuebleRepository {
             return false;
         }
     }
-
 }

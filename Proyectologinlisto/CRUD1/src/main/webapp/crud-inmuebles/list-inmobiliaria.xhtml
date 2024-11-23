@@ -1,0 +1,58 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+   <ui:define name="content">
+      <h1>Lista de Inmuebles de Inmobiliarias</h1>
+
+      <!-- Botón para agregar una nueva inmobiliaria -->
+      <h:form>
+         <h:commandButton action="/crud-inmuebles/agregar_editar-inmobiliaria.xhtml"
+                          value="Agregar Nueva Inmobiliaria" styleClass="btn btn-primary mb-3" />
+      </h:form>
+
+      <!-- Tabla de inmobiliarias -->
+      <div class="card">
+         <p:dataTable var="inmobiliaria" value="#{inmuebleBean.inmobiliarias}" styleClass="table table-striped">
+
+            <!-- Columna de opciones -->
+            <p:column headerText="Acciones">
+               <h:form>
+                  <h:commandButton value="Editar" action="#{inmuebleBean.editInmobliaria(inmobiliaria.codigo)}"
+                                   styleClass="btn btn-warning btn-sm" />
+                  <h:commandButton value="Eliminar" action="#{inmuebleBean.deleteInmobiliaria(inmobiliaria.codigo)}"
+                                   styleClass="btn btn-danger btn-sm" />
+               </h:form>
+            </p:column>
+
+            <!-- Columna de Código -->
+            <p:column headerText="Código">
+               <h:outputText value="#{inmobiliaria.codigo}" />
+            </p:column>
+
+            <!-- Columna de Tipo de Inmueble -->
+            <p:column headerText="Tipo de Inmueble">
+               <h:outputText value="#{inmobiliaria.tipoInmueble}" />
+            </p:column>
+
+            <!-- Columna de Descripción -->
+            <p:column headerText="Descripción">
+               <h:outputText value="#{inmobiliaria.descripcionInmueble}" />
+            </p:column>
+
+            <!-- Columna de Fecha de Adquisición -->
+            <p:column headerText="Fecha de Adquisición">
+               <h:outputText value="#{inmobiliaria.fechaAdquisicion}" />
+            </p:column>
+
+            <!-- Columna de Estado -->
+            <p:column headerText="Estado">
+               <h:outputText value="#{inmobiliaria.estado ? 'Activo' : 'Inactivo'}" />
+            </p:column>
+
+         </p:dataTable>
+      </div>
+   </ui:define>
+</ui:composition>

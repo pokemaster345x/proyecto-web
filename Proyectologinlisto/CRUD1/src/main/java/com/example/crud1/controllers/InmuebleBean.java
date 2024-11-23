@@ -2,9 +2,7 @@ package com.example.crud1.controllers;
 import com.example.crud1.models.*;
 import com.example.crud1.repositories.InmuebleRepository;
 import jakarta.enterprise.context.SessionScoped;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
-import jakarta.faces.event.ValueChangeEvent;
+
 import jakarta.inject.Named;
 
 import java.io.Serializable;
@@ -19,58 +17,99 @@ import jdk.jfr.Name;
 @Named("inmuebleBean")
 
 public class InmuebleBean implements Serializable {
-    private boolean editando = false;
-    private Inmueble inmueble;
     private InmuebleService inmuebleService;
-    private List <Inmueble> inmuebles;
-    private boolean banderita=false;//para saber si es de la inmobiliaria o de cliente
-    public boolean isEditando() {
-        return editando;
-    }
+    private List<InmuebleInmobiliaria> inmobiliarias;
+    private List<InmueblePropietario> propietarios;
+    private InmuebleInmobiliaria inmobiliaria;
+    private InmueblePropietario propietario;
 
-    public void setEditando(boolean editando) {
-        this.editando = editando;
-    }
-    public InmuebleBean(){
+    public InmuebleBean() {
         this.inmuebleService = new InmuebleService();
-        ListarInmueble();
+        listarInmueblesInmobiliarias();
+        listarInmueblesPropietarios();
     }
-    public void ListarInmueble(){
-        this.inmuebles=this.inmuebleService.getInmuebles();
+    public void listarInmueblesInmobiliarias() {
+        this.inmobiliarias=this.inmuebleService.ListInmobiliarias();
     }
-    public List<Inmueble> getInmuebles() {
-        return inmuebles;
-    }
-    public Inmueble getInmueble() {
-        return inmueble;
-    }
-    public void setInmueble(Inmueble inmueble) {
-        this.inmueble = inmueble;
-    }
-    public String createInmueble() {
-        boolean existeInmueble = inmuebleService.existeInmueble(this.inmueble); // Método para verificar existencia
-
-        if (!existeInmueble) {
-            // Lógica para decidir si el inmueble es de un propietario o de la inmobiliaria
-            if (banderita) {
-                // Crear inmueble de propietario
-                InmueblePropietario inmueblePropietario = new InmueblePropietario(this.inmueble);
-                inmuebleService.createPropietario(inmueblePropietario);
-            } else {
-                // Crear inmueble de la inmobiliaria
-                InmuebleInmobiliaria inmuebleInmobiliaria = new InmuebleInmobiliaria(this.inmueble);
-                inmuebleService.createInmobiliaria(inmuebleInmobiliaria);
-            }
-
-            ListarInmueble(); // Actualiza la lista de inmuebles
-            return "/crud-inmuebles/listar-inmuebles?faces-redirect=true"; // Redirige a la lista
-        } else {
-            FacesContext.getCurrentInstance().addMessage(
-                    null,
-                    new FacesMessage(FacesMessage.SEVERITY_WARN, "Código ya registrado", "Este código de inmueble ya está registrado")
-            );
-            return null;
-        }
+    public void listarInmueblesPropietarios(){
+        this.propietarios=this.inmuebleService.ListPropietarios();
     }
 
+    public List<InmuebleInmobiliaria> getInmobiliarias() {
+        return inmobiliarias;
+    }
+
+    public void setInmobiliarias(List<InmuebleInmobiliaria> inmobiliarias) {
+        this.inmobiliarias = inmobiliarias;
+    }
+
+    public List<InmueblePropietario> getPropietarios() {
+        return propietarios;
+    }
+
+    public void setPropietarios(List<InmueblePropietario> propietarios) {
+        this.propietarios = propietarios;
+    }
+
+    public InmuebleInmobiliaria getInmobiliaria() {
+        return inmobiliaria;
+    }
+
+    public void setInmobiliaria(InmuebleInmobiliaria inmobiliaria) {
+        this.inmobiliaria = inmobiliaria;
+    }
+
+    public InmueblePropietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(InmueblePropietario propietario) {
+        this.propietario = propietario;
+    }
+    public String createI_Inmobiliaria() {
+        this.inmobiliaria=new InmuebleInmobiliaria();
+        return "/crud-inmuebles/agregar_editar-inmobiliaria?faces-redirect=true";
+    }
+    public String createI_Propietario() {
+        this.propietario=new InmueblePropietario();
+        return "/crud-inmuebles/agregar_editar-propietario?faces-redirect=true";
+    }
+    public String createInmobiliaria() {
+        this.inmuebleService.createInmobiliaria(this.inmobiliaria);
+        listarInmueblesInmobiliarias();
+        return "/crud-inmuebles/list-inmobiliaria.xhtml?faces-redirect=true";
+    }
+    public String createPropietario() {
+        this.inmuebleService.createPropietario(this.propietario);
+        listarInmueblesPropietarios();
+        return "/curd-inmuebles/list-propietario.xhtml?faces-redirect=true";
+    }
+    public String editInmobliaria(int codigo){
+        this.inmobiliaria=inmuebleService.getbyIdI(codigo);
+        return "/crud-inmuebles/agregar_editar-inmobiliaria?faces-redirect=true";
+    }
+    public String editPropietario(int codigo){
+        this.propietario=inmuebleService.getbyIdP(codigo);
+        return "/crud-inmuebles/agregar_editar-propietario?faces-redirect=true";
+    }
+    public String deleteInmobiliaria(int codigo){
+        inmuebleService.delete(codigo);
+        listarInmueblesInmobiliarias();
+        return "/crud-inmuebles/list-inmobiliaria.xhtml?faces-redirect=true";
+    }
+    public String deletePropietario(int codigo){
+        inmuebleService.delete(codigo);
+        listarInmueblesPropietarios();
+        return "/crud-inmuebles/list-propietario.xhtml?faces-redirect=true";
+    }
+    public String updateInmobiliaria(int codigo){
+        inmuebleService.editInmobiliaria(this.inmobiliaria);
+        listarInmueblesInmobiliarias();
+        return  "/crud-inmuebles/list-inmobiliaria.xhtml?faces-redirect=true";
+    }
+    public String updatePropietario(int codigo){
+        inmuebleService.editPropietario(this.propietario);
+        listarInmueblesPropietarios();
+        return  "/crud-inmuebles/list-propietario.xhtml?faces-redirect=true";
+    }
 }

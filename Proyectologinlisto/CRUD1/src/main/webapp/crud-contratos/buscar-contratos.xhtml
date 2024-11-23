@@ -9,14 +9,14 @@
         <h:form>
             <h3>Buscar contrato por Codigo</h3>
             <h:outputLabel for="codigo" value="Codigo: " />
-            <h:inputText id="codigo" value="#{contratoBean.contratoBuscar}" />
+            <h:inputText id="codigo" value="#{contratoBean.codigoBuscar}" />
             <h:commandButton value="Buscar"
-                             action="#{contratoBean.buscarContratoPorCodigo" />
+                             action="#{contratoBean.buscarContratoPorCodigo}" />
             <h:messages />
 
             <h:panelGroup rendered="#{not empty contratoBean.contrato}">
                 <h3>Detalles del contrato</h3>
-                <h:outputText value="Codigo: #{contratoBean.contrato.codigo}" /><br/>
+                <h:outputText value="Codigo: #{contratoBean.}" /><br/>
                 <h:outputText value="Valor: #{contratoBean.contrato.valor}" /><br/>
                 <h:outputText value="Tipo Contrato: #{contratoBean.contrato.tipoContrato}" /><br/>
                 <h:outputText value="Descripcion: #{contratoBean.contrato.descripcion}" /><br/>

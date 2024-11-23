@@ -7,14 +7,16 @@
     <ui:define name="content">
         <h1>Lista de Contratos</h1>
         <h:form>
-            <h:commandButton action="#{contratoBean.createContrato}" value="Crear Nuevo Contrato"/>
+            <h:form>
+                <h:commandButton action="#{contratopropietariobean.createContrato()}" value="Crear Nuevo Contrato"/>
+            </h:form>
         </h:form>
         <div class="card">
-            <p:dataTable var="contrato" value="#{contratoBean.contrato}">
+            <p:dataTable var="contrato" value="#{contratopropietariobean.contratos}">
                 <p:column headerText="Accciones">
                     <h:form>
-                        <h:commandButton value="Editar" action="#{contratoBean.detail(contrato.codigo)}"/>
-                        <h:commandButton value="Eliminar" action="#{contratoBean.detail(contrato.codigo)}"/>
+                        <h:commandButton value="Editar" action="#{contratopropietariobean.edit(contrato.codigo)}"/>
+                        <h:commandButton value="Eliminar" action="#{contratopropietariobean.delete(contrato.codigo)}"/>
                     </h:form>
                 </p:column>
                 <p:column headerText="Codigo">
@@ -33,10 +35,16 @@
                     <h:outputText value="#{contrato.fechaCreacion}" />
                 </p:column>
                 <p:column headerText="Fecha Expiracion">
-                    <h:outputText value="#{contrato.fechaExpiracion}" />
+                    <h:outputText value="#{contrato.fechaCreacion}" />
                 </p:column>
-                <p:column headerText="Cedula">
-                    <h:outputText value="#{contrato.cedula}" />
+                <p:column headerText="Cedula agente">
+                    <h:outputText value="#{contrato.agente.cedula}" />
+                </p:column>
+                <p:column headerText="Cedula propietario">
+                    <h:outputText value="#{contrato.propietario.cedula}" />
+                </p:column>
+                <p:column headerText="Codigo inmueble">
+                    <h:outputText value="#{contrato.inmueble.codigo}" />
                 </p:column>
 
             </p:dataTable>

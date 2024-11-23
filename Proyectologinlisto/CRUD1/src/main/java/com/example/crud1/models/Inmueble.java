@@ -17,6 +17,8 @@ public class Inmueble {
     private float precioFinal;
 
     public Inmueble() {
+        this.ciudad = new Ciudad();
+
     }
 
     public Inmueble(int codigo, String tipoInmueble, String DescripcionInmueble, String ModalidadComercio, int codigoCiudad, String direccion, float tamanoMetro, int CantBanos, String FotoInmueble, boolean estado, float precioFinal) {

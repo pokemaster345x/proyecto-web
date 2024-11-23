@@ -1,0 +1,121 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h1 class="text-center mb-4">Crear Contrato Propietario</h1>
+
+        <p:growl id="growl" showDetail="true" />
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h:form>
+                                <!-- Campo Código -->
+                                <div class="form-group">
+                                    <label for="codigo">Código</label>
+                                    <h:inputText id="codigo" value="#{contratopropietariobean.contratoPropietario.codigo}"
+                                                 label="Código" styleClass="form-control" />
+                                    <h:message for="codigo" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Fecha de Expiración -->
+                                <div class="form-group">
+                                    <label for="expiracion">Fecha de Expiración</label>
+                                    <p:datePicker id="expiracion" value="#{contratopropietariobean.contratoPropietario.fechaExpiracion}"
+                                                  label="Fecha de Expiración" required="true" pattern="yyyy-MM-dd"
+                                                  styleClass="form-control" />
+                                    <h:message for="expiracion" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Fecha de Creación -->
+                                <div class="form-group">
+                                    <label for="creacion">Fecha de Creación</label>
+                                    <p:datePicker id="creacion" value="#{contratopropietariobean.contratoPropietario.fechaCreacion}"
+                                                  label="Fecha de Creación" required="true" pattern="yyyy-MM-dd"
+                                                  styleClass="form-control" />
+                                    <h:message for="creacion" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Tipo de Contrato -->
+                                <div class="form-group">
+                                    <label for="tipo_contrato">Tipo de Contrato</label>
+                                    <h:inputText id="tipo_contrato" value="#{contratopropietariobean.contratoPropietario.tipoContrato}"
+                                                 label="Tipo de Contrato" styleClass="form-control" />
+                                    <h:message for="tipo_contrato" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Valor de Venta -->
+                                <div class="form-group">
+                                    <label for="valor_venta">Valor de Venta</label>
+                                    <h:inputText id="valor_venta" value="#{contratopropietariobean.contratoPropietario.valor}"
+                                                 label="Valor de Venta" styleClass="form-control" />
+                                    <h:message for="valor_venta" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Descripción -->
+                                <div class="form-group">
+                                    <label for="descripcion">Descripción</label>
+                                    <h:inputText id="descripcion" value="#{contratopropietariobean.contratoPropietario.descripcion}"
+                                                 label="Descripción" styleClass="form-control" />
+                                    <h:message for="descripcion" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Cédula Agente -->
+                                <div class="form-group">
+                                    <label for="CedulaAgente">Cédula Agente</label>
+                                    <h:inputText id="CedulaAgente" value="#{contratopropietariobean.contratoPropietario.agente.cedula}"
+                                                 label="Cédula Agente" styleClass="form-control" />
+                                    <h:message for="CedulaAgente" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Cédula Propietario -->
+                                <div class="form-group">
+                                    <label for="CedulaPropietario">Cédula Propietario</label>
+                                    <h:inputText id="CedulaPropietario" value="#{contratopropietariobean.contratoPropietario.propietario.cedula}"
+                                                 label="Cédula Propietario" styleClass="form-control" />
+                                    <h:message for="CedulaPropietario" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Código Inmueble -->
+                                <div class="form-group">
+                                    <label for="CodigoInmueble">Código Inmueble</label>
+                                    <h:inputText id="CodigoInmueble" value="#{contratopropietariobean.contratoPropietario.inmueble.codigo}"
+                                                 label="Código Inmueble" styleClass="form-control" />
+                                    <h:message for="CodigoInmueble" class="text-danger small" />
+                                </div>
+
+                                <!-- Campo Porcentaje Comisión -->
+                                <div class="form-group">
+                                    <label for="PorcentajeComision">Porcentaje Comisión</label>
+                                    <h:inputText id="PorcentajeComision" value="#{contratopropietariobean.contratoPropietario.comision}"
+                                                 label="Porcentaje Comisión" styleClass="form-control" />
+                                    <h:message for="PorcentajeComision" class="text-danger small" />
+                                </div>
+
+                                <!-- Botones de Acción -->
+                                <div class="form-group text-center mt-4">
+                                    <h:panelGroup rendered="#{contratopropietariobean.contratoPropietario.codigo == 0}">
+                                        <h:commandButton value="Crear" action="#{contratopropietariobean.create()}"
+                                                         styleClass="btn btn-primary" />
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="#{contratopropietariobean.contratoPropietario.codigo != 0}">
+                                        <h:commandButton value="Actualizar" action="#{contratopropietariobean.update()}"
+                                                         styleClass="btn btn-warning" />
+                                    </h:panelGroup>
+                                    <h:commandButton value="Cancelar"
+                                                     action="/crud-contratos-propietarios/listar-contratos.xhtml?faces-redirect=true"
+                                                     styleClass="btn btn-secondary" />
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

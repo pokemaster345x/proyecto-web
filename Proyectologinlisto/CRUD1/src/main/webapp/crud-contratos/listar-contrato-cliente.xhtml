@@ -1,0 +1,44 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h1>Lista de Contratos</h1>
+        <h:form>
+            <h:commandButton action="#{contratoclientebean.createContrato()}" value="Crear Nuevo Contrato"/>
+        </h:form>
+        <div class="card">
+            <p:dataTable var="contrato" value="#{contratoclientebean.contratos}">
+                <p:column headerText="Accciones">
+                    <h:form>
+                        <h:commandButton value="Editar" action="#{contratoclientebean.edit(contrato.codigo)}"/>
+                        <h:commandButton value="Eliminar" action="#{contratoclientebean.delete(contrato.codigo)}"/>
+                    </h:form>
+                </p:column>
+                <p:column headerText="Codigo">
+                    <h:outputText value="#{contrato.codigo}" />
+                </p:column>
+                <p:column headerText="Valor">
+                    <h:outputText value="#{contrato.valor}" />
+                </p:column>
+                <p:column headerText="Tipo Contrato">
+                    <h:outputText value="#{contrato.tipoContrato}" />
+                </p:column>
+                <p:column headerText="Decripcion">
+                    <h:outputText value="#{contrato.descripcion}" />
+                </p:column>
+                <p:column headerText="Fecha Creacion">
+                    <h:outputText value="#{contrato.fechaCreacion}" />
+                </p:column>
+                <p:column headerText="Fecha Expiracion">
+                    <h:outputText value="#{contrato.fechaExpiracion}" />
+                </p:column>
+                <p:column headerText="Cedula Agente">
+                    <h:outputText value="#{contrato.agente.cedula}" />
+                </p:column>
+            </p:dataTable>
+        </div>
+    </ui:define>
+</ui:composition>

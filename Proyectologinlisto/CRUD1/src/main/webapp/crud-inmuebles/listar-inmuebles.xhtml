@@ -7,7 +7,7 @@
     <ui:define name="content">
         <h1>Lista de Contratos</h1>
         <h:form>
-            <h:commandButton action="#{inmueblesBean.createInmueble}" value="Crear Nuevo Inmueble"/>
+            <h:commandButton action="#{inmuebleBean.createInmueble}" value="Crear Nuevo Inmueble"/>
         </h:form>
         <div class="card">
             <p:dataTable var="inmueble" value="#{inmuebleBean.inmueble}">

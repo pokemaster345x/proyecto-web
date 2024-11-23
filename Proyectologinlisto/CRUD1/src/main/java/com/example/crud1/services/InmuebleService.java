@@ -42,5 +42,13 @@ public class InmuebleService {
     public InmuebleInmobiliaria getbyIdI(int codigo){
         return this.inmuebleRepository.ConsultarInmuebleIn_ID(codigo);
     }
-
+    public void  delete(int codigo){
+        inmuebleRepository.delete(codigo);
+    }
+    public void editInmobiliaria(InmuebleInmobiliaria inmobiliaria){
+        inmuebleRepository.ModificarInmuebleI(inmobiliaria);
+    }
+    public void editPropietario(InmueblePropietario propietario){
+        inmuebleRepository.ModificarInmueble(propietario);
+    }
 }

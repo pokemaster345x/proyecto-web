@@ -1,0 +1,32 @@
+<ui:composition template="/menu/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <ui:define name="content">
+        <h1>Formulario de Inmueble Inmobiliaria</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Código:" for="codigo"/>
+                <h:inputText id="codigo" value="#{inmuebleBean.inmobiliaria.codigo}" disabled="#{inmuebleBean.inmobiliaria.codigo != null}"/>
+
+                <h:outputLabel value="Tipo de Inmueble:" for="tipoInmueble"/>
+                <h:inputText id="tipoInmueble" value="#{inmuebleBean.inmobiliaria.tipoInmueble}"/>
+
+                <h:outputLabel value="Descripción:" for="descripcionInmueble"/>
+                <h:inputTextarea id="descripcionInmueble" value="#{inmuebleBean.inmobiliaria.descripcionInmueble}"/>
+
+                <h:outputLabel value="Fecha de Adquisición:" for="fechaAdquisicion"/>
+                <h:inputText id="fechaAdquisicion" value="#{inmuebleBean.inmobiliaria.fechaAdquisicion}"/>
+
+                <h:outputLabel value="Estado:" for="estado"/>
+                <h:selectBooleanCheckbox id="estado" value="#{inmuebleBean.inmobiliaria.estado}"/>
+
+                <h:outputLabel value="ciudad:" for="ciudad"/>
+                <h:inputText id="ciudad" value="#{inmuebleBean.inmobiliaria.ciudad}"/>
+            </h:panelGrid>
+
+            <h:commandButton value="Guardar" action="#{inmuebleBean.createInmobiliaria()}"/>
+            <h:commandButton value="Cancelar" action="/crud-inmuebles/list-inmobiliaria.xhtml"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

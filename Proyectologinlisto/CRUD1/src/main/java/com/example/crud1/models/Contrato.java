@@ -11,17 +11,36 @@ public class Contrato {
     private Date fechaCreacion;
     private Date fechaExpiracion;
     private int cedula;
+    private Inmueble inmueble;
+    private  Agente agente;
 
-    public Contrato() { }
-    public Contrato(int codigo, float valor, String tipoContrato, String descripcion, Date fechaCreacion, Date fechaExpiracion, int cedula) {
+
+    public Contrato() {
+        inmueble = new Inmueble();
+        agente = new Agente();
+    }
+    public Contrato(int codigo, float valor, String tipoContrato, String descripcion, Date fechaCreacion, Date fechaExpiracion, int cedula, Inmueble inmueble, Agente agente) {
         this.codigo = codigo;
         this.valor = valor;
         this.tipoContrato = tipoContrato;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
         this.fechaExpiracion = fechaExpiracion;
+        this.inmueble = inmueble;
+        this.agente = agente;
         this.cedula = cedula;
     }
+
+    public Agente getAgente(){
+        return agente;
+    }
+    public void setAgente(Agente agente){
+        this.agente = agente;
+    }
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
+    }
+    public Inmueble getInmueble() {return inmueble;}
 
     public int getCodigo() {
         return codigo;

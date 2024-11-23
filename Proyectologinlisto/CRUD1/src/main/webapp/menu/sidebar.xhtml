@@ -21,19 +21,26 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" data-bs-toggle="collapse" href="#contratos" role="button" aria-expanded="false" aria-controls="contratos">Contratos</a>
                         <ul class="collapse" id="contratos">
+
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Listar contratos" action="#{navigationcontrollers.goToPage('listar-contratos','contratos')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Listar contratos Propietario" action="#{navigationcontrollers.goToPage('listar-contrato-propietario','contratos')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Buscar contratos" action="#{navigationcontrollers.goToPage('buscar-contratos','contratos')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Listar contratos Clientes" action="#{navigationcontrollers.goToPage('listar-contrato-cliente','contratos')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Agregar/Editar contratos cliente" action="#{navigationcontrollers.goToPage('create-edit-cliente','contratos')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Agregar/Editar contratos" action="#{navigationcontrollers.goToPage('agregar_editar-contratos','contratos')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Agregar/Editar contratos propietario" action="#{navigationcontrollers.goToPage('create-edit-propietario','contratos')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                         </ul>
@@ -66,7 +73,12 @@
                         <ul class="collapse" id="inmuebles">
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Listar inmuebles" action="#{navigationcontrollers.goToPage('listar-inmuebles','inmuebles')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Listar inmuebles Inmobiliaria" action="#{navigationcontrollers.goToPage('list-inmobiliaria','inmuebles')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Listar inmuebles Propietario" action="#{navigationcontrollers.goToPage('list-propietario','inmuebles')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                             <li class="nav-item">
