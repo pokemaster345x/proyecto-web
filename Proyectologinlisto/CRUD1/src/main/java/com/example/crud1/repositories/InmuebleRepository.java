@@ -88,6 +88,7 @@ public class InmuebleRepository {
                 inmuebleI.setTipoInmueble(rs.getString("tipoInmueble"));
                 inmuebleI.setDescripcionInmueble(rs.getString("DescripcionInmueble"));
                 inmuebleI.setModalidadComercio(rs.getString("ModalidadComercio"));
+                inmuebleI.setFechaAdquisicion(rs.getDate("fechaAdquisicion"));
 
                 Ciudad ciudad = new Ciudad();
                 ciudad.setCodigoCiudad(rs.getInt("codigoCiudad"));
