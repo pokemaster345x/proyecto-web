@@ -102,7 +102,6 @@ public class InmuebleBean implements Serializable {
         listarInmueblesPropietarios();
         return "/crud-inmuebles/list-propietario.xhtml?faces-redirect=true";
     }
-    public String updateInmobiliaria(int codigo){
     public String updateInmobiliaria(){
         inmuebleService.editInmobiliaria(this.inmobiliaria);
         listarInmueblesInmobiliarias();
