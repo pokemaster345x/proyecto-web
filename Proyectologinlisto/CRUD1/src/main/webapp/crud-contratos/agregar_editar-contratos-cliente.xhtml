@@ -6,7 +6,7 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
-        <title>Agregar/Editar Contrato</title>
+        <title>Agregar/Editar Contrato Cliente</title>
         <p:growl id="growl" showDetail="true" />
         <div class="container mt-4">
             <div class="row justify-content-center">
@@ -40,7 +40,7 @@
                                 <!-- Campo para el tipo de contrato -->
                                 <div class="form-group">
                                     <label for="tipo">Tipo de Contrato</label>
-                                    <h:inputText id="tipo" value="#{contratoBean.contrato.tipoContrato}"
+                                    <h:inputText id="tipo" value="#{contratoBean.contrato.tipoContrato} "
                                                  label="Tipo de Contrato" required="true" maxlength="100"
                                                  styleClass="form-control" />
                                     <h:message for="tipo" class="text-danger small" />

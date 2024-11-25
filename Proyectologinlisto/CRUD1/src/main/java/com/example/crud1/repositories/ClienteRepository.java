@@ -102,6 +102,7 @@ public class ClienteRepository {
             ps.setDate(5, new java.sql.Date(cliente.getFechaNacimiento().getTime()));
             ps.setDate(6, new java.sql.Date(cliente.getFechaExpedicion().getTime()));
             ps.setString(7, cliente.getCorreoElectronico());
+            ps.setInt(8, cliente.getCedula());
             int rows = ps.executeUpdate();
             return rows > 0;
         } catch (SQLException e) {

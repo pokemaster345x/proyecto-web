@@ -7,7 +7,7 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel value="Código:" for="codigo"/>
-                <h:inputText id="codigo" value="#{inmuebleBean.inmobiliaria.codigo}" disabled="#{inmuebleBean.inmobiliaria.codigo != null}"/>
+                <h:inputText id="codigo" value="#{inmuebleBean.inmobiliaria.codigo}" disabled="#{inmuebleBean.inmobiliaria.codigo != 0}"/>
 
                 <h:outputLabel value="Tipo de Inmueble:" for="tipoInmueble"/>
                 <h:inputText id="tipoInmueble" value="#{inmuebleBean.inmobiliaria.tipoInmueble}"/>
@@ -22,10 +22,10 @@
                 <h:selectBooleanCheckbox id="estado" value="#{inmuebleBean.inmobiliaria.estado}"/>
 
                 <h:outputLabel value="ciudad:" for="ciudad"/>
-                <h:inputText id="ciudad" value="#{inmuebleBean.inmobiliaria.ciudad}"/>
+                <h:inputText id="ciudad" value="#{inmuebleBean.inmobiliaria.ciudad.codigoCiudad}"/>
             </h:panelGrid>
 
-            <h:commandButton value="Guardar" action="#{inmuebleBean.createInmobiliaria()}"/>
+            <h:commandButton value="Guardar" action="#{inmuebleBean.updateInmobiliaria}"/>
             <h:commandButton value="Cancelar" action="/crud-inmuebles/list-inmobiliaria.xhtml"/>
         </h:form>
     </ui:define>

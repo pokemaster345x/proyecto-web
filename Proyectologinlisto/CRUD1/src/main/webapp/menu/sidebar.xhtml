@@ -88,7 +88,12 @@
                             </li>
                             <li class="nav-item">
                                 <h:form>
-                                    <h:commandLink value="Agregar/Editar inmuebles" action="#{navigationcontrollers.goToPage('agregar_editar-inmuebles','inmuebles')}" styleClass="nav-link text-white ms-3" />
+                                    <h:commandLink value="Agregar/Editar inmuebles Propietario" action="#{navigationcontrollers.goToPage('agregar_editar-propietario','inmuebles')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Agregar/Editar inmuebles Inmobiliaria" action="#{navigationcontrollers.goToPage('agregar_editar-inmobiliaria','inmuebles')}" styleClass="nav-link text-white ms-3" />
                                 </h:form>
                             </li>
                         </ul>
@@ -120,13 +125,32 @@
 
                     <!-- Opciones de Consultar con colapso -->
                     <li class="nav-item">
-                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#consultar" role="button" aria-expanded="false" aria-controls="consultar">Consultar</a>
+                        <a class="nav-link text-white" data-bs-toggle="collapse" href="#consultar" role="button" aria-expanded="false" aria-controls="consultar">Reportes Adicionales</a>
                         <ul class="collapse" id="consultar">
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-white ms-3">Realizar Consulta</a>
+                                <h:form>
+                                    <h:commandLink value="Consulta 7" action="#{navigationcontrollers.goToPage('consulta7','consultas')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-white ms-3">Ver Resultados</a>
+                                <h:form>
+                                    <h:commandLink value="Consulta 8" action="#{navigationcontrollers.goToPage('consulta8','consultas')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Consulta 9" action="#{navigationcontrollers.goToPage('consulta9','consultas')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Consulta 10-1" action="#{navigationcontrollers.goToPage('consulta101','consultas')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
+                            </li>
+                            <li class="nav-item">
+                                <h:form>
+                                    <h:commandLink value="Consulta 10-2" action="#{navigationcontrollers.goToPage('consulta102','consultas')}" styleClass="nav-link text-white ms-3" />
+                                </h:form>
                             </li>
                         </ul>
                     </li>

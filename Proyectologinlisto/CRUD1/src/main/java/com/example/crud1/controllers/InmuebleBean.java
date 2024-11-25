@@ -20,8 +20,8 @@ public class InmuebleBean implements Serializable {
     private InmuebleService inmuebleService;
     private List<InmuebleInmobiliaria> inmobiliarias;
     private List<InmueblePropietario> propietarios;
-    private InmuebleInmobiliaria inmobiliaria;
-    private InmueblePropietario propietario;
+    private InmuebleInmobiliaria inmobiliaria = new InmuebleInmobiliaria();
+    private InmueblePropietario propietario = new InmueblePropietario();
 
     public InmuebleBean() {
         this.inmuebleService = new InmuebleService();
@@ -103,11 +103,12 @@ public class InmuebleBean implements Serializable {
         return "/crud-inmuebles/list-propietario.xhtml?faces-redirect=true";
     }
     public String updateInmobiliaria(int codigo){
+    public String updateInmobiliaria(){
         inmuebleService.editInmobiliaria(this.inmobiliaria);
         listarInmueblesInmobiliarias();
         return  "/crud-inmuebles/list-inmobiliaria.xhtml?faces-redirect=true";
     }
-    public String updatePropietario(int codigo){
+    public String updatePropietario(){
         inmuebleService.editPropietario(this.propietario);
         listarInmueblesPropietarios();
         return  "/crud-inmuebles/list-propietario.xhtml?faces-redirect=true";

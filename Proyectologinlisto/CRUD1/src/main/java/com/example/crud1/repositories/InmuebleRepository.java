@@ -210,6 +210,7 @@ public class InmuebleRepository {
                 PreparedStatement ps = this.conn.prepareStatement(query);
                 ps.setDate(1, new java.sql.Date(inmuebleI.getFechaAdquisicion().getTime())); //guarda el código en inmueble inmo
                 ps.setInt(2, inmuebleI.getCodigo());
+
                 int n = ps.executeUpdate();
                 ps.close();
                 return n > 0;
@@ -225,7 +226,7 @@ public class InmuebleRepository {
                 "FROM inmuebleInmobiliaria ii " +
                 "INNER JOIN inmueble i ON ii.codigo = i.codigo " +
                 "INNER JOIN ciudad c ON i.codigoCiudad = c.codigoCiudad " +
-                "WHERE ip.codigo = ?";
+                "WHERE ii.codigo = ?";
         try (PreparedStatement ps = this.conn.prepareStatement(query)) {
             ps.setInt(1, codigo);
             ResultSet rs = ps.executeQuery();
